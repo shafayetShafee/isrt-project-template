@@ -1,0 +1,101 @@
+---
+knit: (function(inputFile, encoding) {
+      rmarkdown::render(inputFile, 
+                        encoding = encoding, 
+                        output_dir = here::here("output_pdf")) })
+output:
+  bookdown::pdf_book:
+    latex_engine: xelatex
+    keep_tex: true
+    toc_depth: 2
+    fig_height : 5
+    fig_width : 8
+    citation_package: natbib
+    includes:
+      in_header: ../texFiles/import.sty 
+      before_body: ../texFiles/title_reduced.sty
+      # before_body: ../texFiles/title.sty
+documentclass: report
+classoption: oneside
+bibliography: ../texFiles/references.bib
+csl: apa.csl
+geometry: [top=1in, bottom=1in, right=1in, left=1.5in]
+linestretch: 1.5
+fontsize: 12pt
+mainfont: Times New Roman
+linkcolor: NavyBlue
+toccolor: NavyBlue
+citecolor: LimeGreen
+---
+
+
+\newpage
+
+\listoftables
+
+\newpage
+
+\pagenumbering{arabic}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  fig.align = 'center'
+)
+```
+
+```{r analysis-setup}
+
+## ------- package setup ------------------------
+
+## ------- Data setup ---------------------------
+
+```
+
+
+```{r chapter01, child="chapters/chapter01.Rmd"}
+
+```
+
+
+\newpage
+
+```{r chapter02, child="chapters/chapter02.Rmd"}
+
+```
+
+\newpage
+
+```{r chapter03, child="chapters/chapter03.Rmd"}
+
+```
+
+\newpage
+
+```{r chapter04, child="chapters/chapter04.Rmd"}
+
+```
+
+\newpage
+
+
+```{r chapter05, child="chapters/chapter05.Rmd"}
+
+```
+
+<!-- \newpage -->
+
+<!-- ```{r chapter06, child="chapters/chapter06.Rmd"} -->
+
+<!-- ``` -->
+
+\newpage
+
+
+# Bibliography
+
+
+
+
